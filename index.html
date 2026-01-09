@@ -233,6 +233,34 @@ function scrollToContact(){
 }
 </script>
 
+  <script>
+(function () {
+  // zawsze startuj stronę od góry (mobile bug fix)
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
+  window.addEventListener('load', function () {
+    // brutalny reset scrolla
+    setTimeout(function () {
+      window.scrollTo(0, 0);
+    }, 0);
+
+    // usuń focus z inputów (Android / iOS auto-scroll bug)
+    document.querySelectorAll('input, textarea, select')
+      .forEach(function (el) {
+        el.blur();
+      });
+
+    // usuń hash z URL jeśli istnieje
+    if (window.location.hash) {
+      history.replaceState(null, null, window.location.pathname);
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
+
 
