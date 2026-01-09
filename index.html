@@ -163,7 +163,7 @@ footer a:hover{text-decoration:underline}
   <div>
     <h1>Wykończenia wnętrz & Termomodernizacja</h1>
     <p>Nowoczesne realizacje domów i mieszkań</p>
-    <a href="#kontakt">Bezpłatna wycena</a>
+    <a href="javascript:void(0)" onclick="scrollToContact()">Bezpłatna wycena</a>
   </div>
 </section>
 
@@ -226,5 +226,13 @@ window.addEventListener("scroll",revealOnScroll);
 revealOnScroll();
 </script>
 
+  <script>
+function scrollToContact(){
+  document.getElementById("kontakt")
+    .scrollIntoView({behavior:"smooth"});
+}
+</script>
+
 </body>
 </html>
+
